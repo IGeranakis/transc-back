@@ -1,12 +1,11 @@
-import express from "express"
-import {test} from "../controllers/test.js"
+import express from "express";
+import multer from "multer";
+import { transcribeAudio } from "../controllers/test.js";
 
-const router=express.Router();
+const router = express.Router();
+const upload = multer({ dest: "uploads/" });
 
-
-router.get('/test',test);
-// router.post('/login',Login);
-// router.delete('/logout',logOut);
-
+// Transcription Route
+router.post("/transcribe", upload.single("file"), transcribeAudio);
 
 export default router;

@@ -79,6 +79,8 @@ async function segmentAndTranscribe(filePath) {
               return reject("FFmpeg did not generate any segments");
             }
 
+            segmentTranscriptions = []
+
             for (const file of files) {
               console.log("Transcribing:", file);
               const segmentTranscription = await transcribeSegment(`${outputDir}${file}`);

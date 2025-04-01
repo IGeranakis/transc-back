@@ -26,3 +26,26 @@ Content-Type: application/json
 
 ###GET users
 GET http://localhost:5000/users
+
+###
+POST http://localhost:5000/correctTranscribe
+Content-Type: application/json
+
+{
+"uuid":"b29178df-06d1-44fe-89e7-033a8a77e700",
+"textId":"1",
+"desc":"Initial transcription here",
+"speakers":"2"
+}
+
+###
+POST http://localhost:5000/summarize
+Content-Type: application/json
+
+{
+    "textId":"2"
+}
+
+###
+GET http://localhost:5000/history/user/b29178df-06d1-44fe-89e7-033a8a77e700
+

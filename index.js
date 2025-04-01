@@ -10,9 +10,11 @@ import cors from "cors"
 import testRouter from "./routes/test_route.js";
 import userRouter from "./routes/user_route.js";
 import authRouter from "./routes/auth_route.js";
+import historyRouter from "./routes/history_route.js"
 
 import Users from "./models/user_model.js";
-
+import Text from "./models/text_model.js";
+import Segment from "./models/segments_model.js";
 
 // import multer from "multer";
 // import axios from "axios";
@@ -41,6 +43,8 @@ const store = new sessionStore({
 (async()=>{
     //await db.sync();
     await Users.sequelize.sync();  
+    await Text.sequelize.sync();
+    await Segment.sequelize.sync();
 })();
 
 
@@ -199,6 +203,7 @@ app.use(express.json());
 app.use(testRouter);
 app.use(userRouter);
 app.use(authRouter);
+app.use(historyRouter);
 
 
 // var routes = require("./routes/routes.js")(app);
